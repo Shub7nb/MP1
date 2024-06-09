@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   const navigate = useNavigate();
@@ -8,7 +9,7 @@ const Services = () => {
       icon: "fas fa-truck",
       title: "Schedule a pickup",
       description: "Set up a pre-sorted pickup from the municipality in a predetermined time slot",
-      link: "/schedule-pickup"
+      link: "/schedule"
     },
     {
       icon: "fas fa-tshirt",
@@ -64,6 +65,7 @@ const Services = () => {
               <button onClick={() => handleNavigate(service.link)} className="inline-block text-green-600 hover:text-green-800">
                 <i className="fas fa-plus-circle text-lg"></i>
               </button>
+              {/* but<Link to='/schedule'>hii</Link> */}
             </div>
           ))}
         </div>
