@@ -24,6 +24,9 @@ function App() {
         <div id="services"><Services /></div>
         <div id = "info1"><Info1 /></div>
         <div id = "members"><Members /></div>
+        <div id = "contact"><Contact /></div>
+
+
 
        
         {/* <div id="contact"><Contact /></div> */}

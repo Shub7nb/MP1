@@ -10,9 +10,9 @@ const Navbar = () => {
         </div>
         <div className="flex space-x-8 text-lg">
           <Link smooth to="/#home" className="hover:text-green-600">Home</Link>
-          <Link smooth to="/#about" className="hover:text-green-600">About</Link>
+          <Link smooth to="/#as" className="hover:text-green-600">About</Link>
           <Link smooth to="/#services" className="hover:text-green-600">Services</Link>
-          <Link smooth to="/#team" className="hover:text-green-600">Team</Link>
+          <Link smooth to="/#members" className="hover:text-green-600">Team</Link>
           <Link smooth to="/#contact" className="hover:text-green-600">Contact</Link>
         </div>
         <Link smooth to="/login" className="bg-green-800 text-white hover:bg-green-900 px-4 py-2 rounded-full text-lg font-bold transition-colors duration-200">Log In</Link>
