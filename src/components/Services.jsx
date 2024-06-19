@@ -1,9 +1,7 @@
+// src/components/Services.jsx
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
-const Services = () => {
-  const navigate = useNavigate();
+const Services = ({ onServiceClick }) => {
   const services = [
     {
       icon: "fas fa-truck",
@@ -43,10 +41,6 @@ const Services = () => {
     }
   ];
 
-  const handleNavigate = (path) => {
-    navigate(path);
-  };
-
   return (
     <div id="services" className="py-12 bg-gray-50">
       <div className="container mx-auto px-6">
@@ -62,10 +56,9 @@ const Services = () => {
               </div>
               <h4 className="font-bold text-lg mb-2">{service.title}</h4>
               <p className="mb-4">{service.description}</p>
-              <button onClick={() => handleNavigate(service.link)} className="inline-block text-green-600 hover:text-green-800">
+              <button onClick={() => onServiceClick(service.link)} className="inline-block text-green-600 hover:text-green-800">
                 <i className="fas fa-plus-circle text-lg"></i>
               </button>
-              {/* but<Link to='/schedule'>hii</Link> */}
             </div>
           ))}
         </div>

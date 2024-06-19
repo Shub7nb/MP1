@@ -1,7 +1,8 @@
+// src/components/Navbar.jsx
 import React from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
 
-const Navbar = () => {
+const Navbar = ({ onLoginClick, onLogoutClick }) => {
   return (
     <nav className="bg-white text-green-800 w-full shadow h-20">
       <div className="max-w-7xl mx-auto px-5 flex justify-between items-center h-full">
@@ -15,7 +16,21 @@ const Navbar = () => {
           <Link smooth to="/#members" className="hover:text-green-600">Team</Link>
           <Link smooth to="/#contact" className="hover:text-green-600">Contact</Link>
         </div>
-        <Link smooth to="/login" className="bg-green-800 text-white hover:bg-green-900 px-4 py-2 rounded-full text-lg font-bold transition-colors duration-200">Log In</Link>
+        {onLoginClick ? (
+          <button
+            onClick={onLoginClick}
+            className="bg-green-800 text-white hover:bg-green-900 px-4 py-2 rounded-full text-lg font-bold transition-colors duration-200"
+          >
+            Log In
+          </button>
+        ) : (
+          <button
+            onClick={onLogoutClick}
+            className="bg-red-800 text-white hover:bg-red-900 px-4 py-2 rounded-full text-lg font-bold transition-colors duration-200"
+          >
+            Log Out
+          </button>
+        )}
       </div>
     </nav>
   );
