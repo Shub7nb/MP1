@@ -1,24 +1,25 @@
 import React from 'react';
 
+
 const teamMembers = [
   {
-    name: 'ar',
-    title: 'Environment Enthusiast',
+    name: 'Prathamesh Jadi',
+    title: '01FE21BCS213',
     imgSrc: 'https://undraw.co/illustrations', // Replace with actual vector art URL
   },
   {
-    name: 'b',
-    title: 'Innovator',
+    name: 'Chaitanya UM ',
+    title: '01FE21BCS352',
     imgSrc: 'https://undraw.co/illustrations', // Replace with actual vector art URL
   },
   {
-    name: 'c',
-    title: 'Team Leader',
-    imgSrc: 'https://undraw.co/illustrations', // Replace with actual vector art URL
+    name: 'Sakshi Habib',
+    title: '01FE21BCS356',
+    imgSrc: './IMG_7486.JPG', // Replace with actual vector art URL
   },
   {
-    name: 'd',
-    title: 'New Role',
+    name: 'Shubham NB',
+    title: '01FE21BCS360',
     imgSrc: 'https://undraw.co/illustrations', // Replace with actual vector art URL
   },
 ];
@@ -29,7 +30,7 @@ const Members = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mx-auto mb-12" style={{ maxWidth: '600px' }}>
           <p className="text-2xl font-semibold text-green-600">Our Team</p>
-          <h1 className="text-5xl font-bold text-green-800 mb-5">Dedicated & Experienced Team Members</h1>
+          <h1 className="text-5xl font-bold text-green-800 mb-5">Dedicated & Commited Team Members</h1>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {teamMembers.map((member, index) => (

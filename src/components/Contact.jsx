@@ -58,16 +58,16 @@ const Contact = () => {
           <div>
             <h2 className="text-lg font-bold mb-4">Quick Links</h2>
             <ul>
-              <li className="mb-2"><Link smooth to="/#about" className="text-gray-300 hover:text-green-400">About Us</Link></li>
+              <li className="mb-2"><Link smooth to="/#as" className="text-gray-300 hover:text-green-400">About Us</Link></li>
               <li className="mb-2"><Link smooth to="/#contact" className="text-gray-300 hover:text-green-400">Contact Us</Link></li>
               <li className="mb-2"><Link smooth to="/#services" className="text-gray-300 hover:text-green-400">Our Services</Link></li>
-              <li className="mb-2"><Link smooth to="/#terms" className="text-gray-300 hover:text-green-400">Terms & Condition</Link></li>
+              <li className="mb-2"><Link smooth to="/#members" className="text-gray-300 hover:text-green-400">Terms & Condition</Link></li>
               <li className="mb-2"><Link smooth to="/#support" className="text-gray-300 hover:text-green-400">Support</Link></li>
             </ul>
           </div>
           <div>
             <h2 className="text-lg font-bold mb-4">Newsletter</h2>
-            <p className="text-gray-300 mb-4">Join our newsletter and stay updated about all things green and environmentally friendly in Mangalore</p>
+            <p className="text-gray-300 mb-4">Join our newsletter and stay updated about all things green and environmentally friendly in Hubbali</p>
             <div className="flex">
               <input type="email" placeholder="Your email" className="p-2 rounded-l bg-green-600 text-gray-300 placeholder-green-300 focus:outline-none focus:bg-green-500" />
               <button className="p-2 rounded-r bg-green-700 text-gray-300 hover:bg-green-600">SignUp</button>
