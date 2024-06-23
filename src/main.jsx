@@ -1,5 +1,5 @@
 // src/main.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -17,72 +17,169 @@ import MakeBetterChoicesOrg from './components/org/MakeBetterChoicesOrg';
 import DonateBooksOrg from './components/org/DonateBooksOrg';
 import DonateClothesOrg from './components/org/DonateClothesOrg';
 import CanBeRecycledOrg from './components/org/CanBeRecycledOrg';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Layout from './components/Layout';
+import LoginModal from './components/LoginModal';
+import { createBrowserRouter, RouterProvider, useNavigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+
+const AppWrapper = ({ children }) => {
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const { isLoggedIn, userType, login } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogin = (username, password, userType) => {
+    if ((username === 'user' && password === '123') || (username === 'org' && password === '123')) {
+      setShowLoginModal(false);
+      login(userType);
+      if (userType === 'user') {
+        navigate('/user-dashboard');
+      } else if (userType === 'organization') {
+        navigate('/organization-dashboard');
+      }
+    } else {
+      alert('Invalid credentials');
+    }
+  };
+
+  return (
+    <Layout setShowLoginModal={setShowLoginModal}>
+      {children}
+      {showLoginModal && (
+        <LoginModal
+          onClose={() => setShowLoginModal(false)}
+          onLogin={handleLogin}
+        />
+      )}
+    </Layout>
+  );
+};
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: (
+      <AppWrapper>
+        <App />
+      </AppWrapper>
+    ),
   },
   {
     path: '/user-dashboard',
-    element: <UserDashboard />,
+    element: (
+      <AppWrapper>
+        <UserDashboard />
+      </AppWrapper>
+    ),
   },
   {
     path: '/organization-dashboard',
-    element: <OrganizationDashboard />,
+    element: (
+      <AppWrapper>
+        <OrganizationDashboard />
+      </AppWrapper>
+    ),
   },
   {
     path: '/scheduleuser',
-    element: <ScheduleUser />,
+    element: (
+      <AppWrapper>
+        <ScheduleUser />
+      </AppWrapper>
+    ),
   },
   {
     path: '/scheduleorg',
-    element: <ScheduleOrg />,
+    element: (
+      <AppWrapper>
+        <ScheduleOrg />
+      </AppWrapper>
+    ),
   },
   {
     path: '/donate-clothesuser',
-    element: <DonateClothesUser />,
+    element: (
+      <AppWrapper>
+        <DonateClothesUser />
+      </AppWrapper>
+    ),
   },
   {
     path: '/donate-clothesorg',
-    element: <DonateClothesOrg />,
+    element: (
+      <AppWrapper>
+        <DonateClothesOrg />
+      </AppWrapper>
+    ),
   },
   {
     path: '/donate-booksuser',
-    element: <DonateBooksUser />,
+    element: (
+      <AppWrapper>
+        <DonateBooksUser />
+      </AppWrapper>
+    ),
   },
   {
     path: '/donate-booksorg',
-    element: <DonateBooksOrg />,
+    element: (
+      <AppWrapper>
+        <DonateBooksOrg />
+      </AppWrapper>
+    ),
   },
   {
     path: '/stay-informeduser',
-    element: <StayInformedUser />,
+    element: (
+      <AppWrapper>
+        <StayInformedUser />
+      </AppWrapper>
+    ),
   },
   {
     path: '/stay-informedorg',
-    element: <StayInformedOrg />,
+    element: (
+      <AppWrapper>
+        <StayInformedOrg />
+      </AppWrapper>
+    ),
   },
   {
     path: '/can-be-recycleduser',
-    element: <CanBeRecycledUser />,
+    element: (
+      <AppWrapper>
+        <CanBeRecycledUser />
+      </AppWrapper>
+    ),
   },
   {
     path: '/can-be-recycledorg',
-    element: <CanBeRecycledOrg />,
+    element: (
+      <AppWrapper>
+        <CanBeRecycledOrg />
+      </AppWrapper>
+    ),
   },
   {
     path: '/make-better-choicesuser',
-    element: <MakeBetterChoicesUser />,
+    element: (
+      <AppWrapper>
+        <MakeBetterChoicesUser />
+      </AppWrapper>
+    ),
   },
   {
     path: '/make-better-choicesorg',
-    element: <MakeBetterChoicesOrg />,
+    element: (
+      <AppWrapper>
+        <MakeBetterChoicesOrg />
+      </AppWrapper>
+    ),
   },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <RouterProvider router={router} />
+  <AuthProvider>
+    <RouterProvider router={router} />
+  </AuthProvider>
 );

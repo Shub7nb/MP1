@@ -1,14 +1,13 @@
 // src/components/LoginModal.jsx
 import React, { useState } from 'react';
 
-const Login = ({ onClose, onLogin }) => {
+const LoginModal = ({ onClose, onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [userType, setUserType] = useState('user');
 
   const handleLogin = () => {
     onLogin(username, password, userType);
-    onClose();
   };
 
   return (
@@ -63,4 +62,4 @@ const Login = ({ onClose, onLogin }) => {
   );
 };
 
-export default Login;
+export default LoginModal;
